@@ -1,13 +1,25 @@
+import java.util.Scanner;
+
 public class LoginController extends Controller {
 
-    /**
-     *
-     * @param username
-     * @param pwd
-     */
-    public User login(String username, String pwd) {
-        // TODO - implement LoginController.login
-        throw new UnsupportedOperationException();
+    static UserRepository useRep = new UserRepository();
+    Scanner reader = new Scanner(System.in);
+
+    public LoginController(){
+        useRep.add(new User("1","Mokh","Mahmoud"));
+    }
+
+
+    public User login() {
+        String u;
+        String p;
+
+        System.out.println("Veuillez entrer votre nom d'utilisateur");
+        u=reader.next();
+        System.out.println("Veuillez entrer votre mot de passe");
+        p=reader.next();
+        return (User) useRep.has(u,p);
+
     }
 
     /**
@@ -26,16 +38,6 @@ public class LoginController extends Controller {
      */
     public boolean changePassword(User user, String pwd) {
         // TODO - implement LoginController.changePassword
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     *
-     * @param username
-     * @param pwd
-     */
-    public boolean valideUser(String username, String pwd) {
-        // TODO - implement LoginController.valideUser
         throw new UnsupportedOperationException();
     }
 
