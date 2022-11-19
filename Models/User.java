@@ -7,6 +7,11 @@ public class User {
     private String password;
     private boolean isRes;
 
+    public User(String i, String u, String p){
+        this.id=i;
+        this.username=u;
+        this.password=p;
+    }
 
     public void changePassword(String oldPwd, String newPwd) {
         if (Objects.equals(oldPwd, this.password)) {this.password=newPwd;}
@@ -14,5 +19,6 @@ public class User {
 
     public String getId() {return this.id;}
     public String getUsername() {return this.username;}
+    public String getPwd() {return this.password;}
     public boolean isRes() {return this.isRes;}
 }

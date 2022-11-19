@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class UserRepository implements IRepository {
     ArrayList<User> useRep = new ArrayList<User>();
     @Override
+
     public boolean add(Object entity) {
         this.useRep.add((User) entity);
         return true;
@@ -36,5 +38,14 @@ public class UserRepository implements IRepository {
         }
         return null;
         //Catch exception when object is not found
+    }
+
+    public Object has(String u, String p) {
+        for (User user : useRep) {
+            if (Objects.equals(user.getUsername(), u) && Objects.equals(user.getPwd(), p)) {
+                return user;
+            }
+        }
+        return null;
     }
 }
