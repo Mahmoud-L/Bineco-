@@ -8,6 +8,14 @@ public class Menu {
         throw new UnsupportedOperationException();
     }
 
+    public void displayLoginPage() {
+        System.out.println("Hello");
+    }
+
+    public void displayMain() {
+
+    }
+
     public void displayBacPage() {
         // TODO - implement Menu.displayBacPage
         throw new UnsupportedOperationException();
