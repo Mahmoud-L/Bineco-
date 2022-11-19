@@ -14,7 +14,7 @@ public class ResidentController extends Controller {
         this.res=(Resident) resRep.get(id);
     }
 
-    public void addBac(String id) {
+    public void addBac() {
         System.out.println("Veuillez entrez le code QR du bac");
         String c = reader.next();
         System.out.println("Veuillez entrez le nom du bac");
@@ -25,7 +25,8 @@ public class ResidentController extends Controller {
     }
 
 
-    public boolean deleteBac(String code) {
+    public boolean deleteBac() {
+        String code = "omek kahba";
         return res.deleteBac(code);
         //Catch exception return false
     }
@@ -43,7 +44,7 @@ public class ResidentController extends Controller {
 
     }
 
-    public boolean setMetrics(String params) {
+    public boolean setMetrics() {
         return true;
     }
 
@@ -57,7 +58,8 @@ public class ResidentController extends Controller {
      * @param id
      * @param text
      */
-    public boolean reportProb(String id, String text) {
+    public boolean reportProb()
+    {
         return true;
     }
 

@@ -17,18 +17,18 @@ public class Menu {
         Scanner reader = new Scanner(System.in);
         int choix  = -1 ;
         while ( choix != 0) {
-            System.out.println("Choisir une option : ");
+            System.out.println(" Choisir une option : ");
             System.out.println("[1] Se connecter ");
             System.out.println("[2] S'inscrire");
             System.out.println("[0] Quitter ");
             choix = reader.nextInt();
             if (choix == 1) {
-                loggedUser = logCon.login();
+                //loggedUser = logCon.login();
                 if (loggedUser != null) {
                     displayMain();
                 }
             } else if (choix == 2) {
-                loggedUser = logCon.createUser();
+                //loggedUser = logCon.createUser();
                 System.out.println("Votre compte a été crée.");
                 System.out.println("Vous pouvez maintenent choisir l'option se connecter ");
             }
@@ -54,7 +54,7 @@ public class Menu {
             choix = reader.nextInt();
             switch (choix) {
                 case 0:
-                    System.out.println("Vous avez choisi de quitter l'application ");
+                    System.out.println("Vous avez choisi de quitter l'application");
                     break;
                 case 1:
                     displayBacPage();
@@ -68,6 +68,9 @@ public class Menu {
                 case 4:
                     displayConsomPage();
                     break;
+                default:
+                    System.out.println("Veillez choisir uniquement un des 4 choix proposés");
+
             }
         }
     }
@@ -90,14 +93,15 @@ public class Menu {
                     resCon.addBac();
                     break;
                 case 2:
-                    resCon.deleteBac();//lezem thot lbac ili thebou yetnaha
+                    resCon.deleteBac();
                     break;
                 case 3:
                     resCon.viewBacs();
                     break;
+                default :
+                    System.out.println("Veillez choisir uniquement un des 4 choix proposés");
             }
         }
-        throw new UnsupportedOperationException();
     }
 
     public void displayMetriquesPage() {
@@ -106,8 +110,7 @@ public class Menu {
         while (choix != 0) {
             System.out.println("Choisir une option : ");
             System.out.println("[1] Voir les metriques");
-            System.out.println("[2] Supprimer un bac");
-            System.out.println("[3] Voir mes bacs");
+            System.out.println("[2] Configurer les metriques ");
             System.out.println("[0] quitter");
             choix = reader.nextInt();
             switch (choix) {
@@ -115,27 +118,61 @@ public class Menu {
                     System.out.println("Vous avez choisi de quitter l'application ");
                     break;
                 case 1:
-                    resCon.addBac();
+                    resCon.viewMetrics();
                     break;
                 case 2:
-                    resCon.deleteBac();//lezem thot lbac ili thebou yetnaha
+                    resCon.setMetrics();
                     break;
-                case 3:
-                    resCon.viewBacs();
-                    break;
+                default :
+                    System.out.println("Veillez choisir uniquement un des 3 choix proposés");
             }
         }
-        throw new UnsupportedOperationException();
     }
 
     public void displayMunicipPage() {
-        // TODO - implement Menu.displayMunicipPage
-        throw new UnsupportedOperationException();
+        Scanner reader = new Scanner(System.in);
+        int choix  = -1 ;
+        while (choix != 0) {
+            System.out.println("Choisir une option : ");
+            System.out.println("[1] Voir l'etat de mes déchets ");
+            System.out.println("[2] Signaler un Problème");
+            System.out.println("[0] quitter");
+            choix = reader.nextInt();
+            switch (choix) {
+                case 0:
+                    System.out.println("Vous avez choisi de quitter l'application ");
+                    break;
+                case 1:
+                    resCon.viewMunicipState();
+                    break;
+                case 2:
+                    resCon.reportProb();
+                    break;
+                default :
+                    System.out.println("Veillez choisir uniquement un des 3 choix proposés");
+            }
+        }
     }
 
     public void displayConsomPage() {
-        // TODO - implement Menu.displayConsomPage
-        throw new UnsupportedOperationException();
+        Scanner reader = new Scanner(System.in);
+        int choix  = -1 ;
+        while (choix != 0) {
+            System.out.println("Choisir une option : ");
+            System.out.println("[1] Trouver un consommateur");
+            System.out.println("[0] quitter");
+            choix = reader.nextInt();
+            switch (choix) {
+                case 0:
+                    System.out.println("Vous avez choisi de quitter l'application ");
+                    break;
+                case 1:
+                    resCon.findConsom();
+                    break;
+                default :
+                    System.out.println("Veillez choisir uniquement un des 2 choix proposés");
+            }
+        }
     }
 
     /**
