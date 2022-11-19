@@ -1,17 +1,10 @@
-import com.sun.source.tree.WhileLoopTree;
-
 import java.util.*;
 public class Menu {
     static LoginController logCon = new LoginController();
     static ResidentController resCon;
-
+    static ConsomController consCon ;
     private User loggedUser = null;
     private int indexPage = 0;
-
-    public void open() {
-        // TODO - implement Menu.open
-        throw new UnsupportedOperationException();
-    }
 
     public void displayLoginPage() {
         Scanner reader = new Scanner(System.in);
@@ -22,21 +15,45 @@ public class Menu {
             System.out.println("[2] S'inscrire");
             System.out.println("[0] Quitter ");
             choix = reader.nextInt();
-            if (choix == 1) {
-                //loggedUser = logCon.login();
+            switch (choix){
+                case 1 :
+                    loggedUser = logCon.login();
                 if (loggedUser != null) {
-                    displayMain();
+                    if (loggedUser.isRes()) {
+
+                        displayMain();
+                    }
+                    else {
+                        displayMainCons();
+                    }
                 }
-            } else if (choix == 2) {
-                //loggedUser = logCon.createUser();
-                System.out.println("Votre compte a été crée.");
-                System.out.println("Vous pouvez maintenent choisir l'option se connecter ");
+                case 2 :
+                    loggedUser = logCon.createUser();
+                    System.out.println("Votre compte a été crée.");
+                    System.out.println("Vous pouvez maintenent choisir l'option se connecter ");
+                case 0 :
+                    System.out.println("Vous avez choisi de quitter l'application ");
+                default :
+                    System.out.println("Veillez choisir uniquement un des 3 choix proposés");
             }
-            else if(choix == 0) {
-                System.out.println("Vous avez choisi de quitter l'application ");
-            }
-            else {
-                System.out.println("Veillez choisir uniquement un des 3 choix proposés");
+        }
+    }
+    public void displayMainCons() {
+        consCon = new ConsomController(loggedUser.getId()) ;
+        Scanner reader = new Scanner(System.in);
+        int choix = -1;
+        while (choix != 0) {
+            System.out.println(" Choisir une option : ");
+            System.out.println("[1] Notifier les residents ");
+            System.out.println("[0] Quitter");
+            choix = reader.nextInt();
+            switch (choix) {
+                case 0:
+                    System.out.println("Vous avez choisi de quitter ");
+                    break;
+                case 1:
+                    consCon.notifyResids();
+                    break;
             }
         }
     }
@@ -87,7 +104,7 @@ public class Menu {
             choix = reader.nextInt();
             switch (choix) {
                 case 0:
-                    System.out.println("Vous avez choisi de quitter l'application ");
+                    System.out.println("Vous avez choisi de quitter ce Menu ");
                     break;
                 case 1:
                     resCon.addBac();
@@ -115,7 +132,7 @@ public class Menu {
             choix = reader.nextInt();
             switch (choix) {
                 case 0:
-                    System.out.println("Vous avez choisi de quitter l'application ");
+                    System.out.println("Vous avez choisi de quitter ce Menu ");
                     break;
                 case 1:
                     resCon.viewMetrics();
@@ -140,7 +157,7 @@ public class Menu {
             choix = reader.nextInt();
             switch (choix) {
                 case 0:
-                    System.out.println("Vous avez choisi de quitter l'application ");
+                    System.out.println("Vous avez choisi de quitter ce Menu  ");
                     break;
                 case 1:
                     resCon.viewMunicipState();
@@ -164,7 +181,7 @@ public class Menu {
             choix = reader.nextInt();
             switch (choix) {
                 case 0:
-                    System.out.println("Vous avez choisi de quitter l'application ");
+                    System.out.println("Vous avez choisi de quitter ce Menu ");
                     break;
                 case 1:
                     resCon.findConsom();
@@ -179,24 +196,5 @@ public class Menu {
      *
      * @param msg
      */
-    public void displayError(String msg) {
-        // TODO - implement Menu.displayError
-        throw new UnsupportedOperationException();
-    }
-
-    public void clear() {
-        // TODO - implement Menu.clear
-        throw new UnsupportedOperationException();
-    }
-
-    public void close() {
-        // TODO - implement Menu.close
-        throw new UnsupportedOperationException();
-    }
-
-    public void exit() {
-        // TODO - implement Menu.exit
-        throw new UnsupportedOperationException();
-    }
 
 }

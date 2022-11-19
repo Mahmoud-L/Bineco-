@@ -11,7 +11,7 @@ public class ConsomController extends Controller {
     }
 
 
-    public void notifyResids(String msg) {
+    public void notifyResids() {
         for (int i=0; i<resRep.size(); i++){
             //Send email to each res
             continue;
