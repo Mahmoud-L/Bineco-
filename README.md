@@ -38,7 +38,7 @@ d’activité que vous pourrez faire en tant que résident.
 menu pour personnaliser votre expérience auprès de Bineco. En effet, n’hésitez pas à ajouter un bac par exemple en simulant
 un code QR et un type de bac bien particulier. 
 
-  Si vous avez choisi L’option se connecter et que vous êtes consommateurs :
+    Si vous avez choisi L’option se connecter et que vous êtes consommateurs :
 Le Menu consommateur est certes moins varié et riche que le Menu résident, cependant il n’est pas pour autant moins efficace.
 En effet, nous avons suivi les directives et le consommateur ne pourra que notifier les résidents ou quitter l’application. 
 
