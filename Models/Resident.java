@@ -52,6 +52,9 @@ public class Resident {
         return true;
         //Add case when param is unvalid
     }
+    public String getReportInfos(){
+        return (this.firstName+","+this.lastName+","+this.address+","+this.email);
+    }
 
 
 }

@@ -82,6 +82,12 @@ public class MunicipInfoService {
         System.out.println("Quantite traitee (en KG): "+lot.qte_traite);
     }
 
+    public void reportProb(String infos){
+        //traitement de la requete
+        //on peut utiliser split "," pour obtenir les infos
+        System.out.println("Votre report a ete envoye.");
+    }
+
 
     private List<Consomateur> listConsommateur() {
         var consommateurList = new ArrayList<Consomateur>();

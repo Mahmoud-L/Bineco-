@@ -8,6 +8,7 @@ public class ResidentController extends Controller {
 
     static ResidentRepository resRep = new ResidentRepository();
     MunicipInfoService municipInfo = new MunicipInfoService();
+    ConsomRepository conRep = new ConsomRepository();
     Scanner reader = new Scanner(System.in);
 
     Resident res;
@@ -182,12 +183,26 @@ public class ResidentController extends Controller {
 
     public boolean reportProb()
     {
+        System.out.println("Veuillez entrer une breve description de votre probleme:");
+        String msg=reader.next();
+        municipInfo.reportProb(res.getReportInfos()+","+msg);
         return true;
     }
 
     public void findConsom() {
-        // TODO - implement ResidentController.findConsom
-        throw new UnsupportedOperationException();
+        System.out.println("Pour filtrer par categories, veuillez entrer R,C, ou O (pour recyclage, compostage ou orudes.");
+        System.out.println("Pour chercher par nom, veuillez entrer une partie du nom du consommateur");
+        String search = reader.next();
+        switch (search){
+            case "R":
+                break;
+            case "C":
+                break;
+            case "O":
+                break;
+            default:
+                break;
+        }
     }
 
     /**
