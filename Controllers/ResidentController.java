@@ -144,19 +144,42 @@ public class ResidentController extends Controller {
     }
 
     public boolean setMetrics() {
+        HashMap<String, Double> metricParams = res.getMetricParams();
+        System.out.println("Vos parametres de métriques actuelles sont (Poids de chaque categorie dans le calcul et Cout ideal max des activites:");
+        System.out.println(metricParams.toString());
+        System.out.println("Veuillez selectionner la colonne a modifier en entrant R,C,O ou CIM:");
+        String choix=reader.next();
+        double newVal;
+        switch (choix){
+            case "R":
+                System.out.println("Veuillez entrer la nouvelle valeur du poids de recyclage (entre 0 et 1)");
+                newVal=reader.nextDouble();
+                res.editMetricParam("Recyclage",newVal);
+                break;
+            case "C":
+                System.out.println("Veuillez entrer la nouvelle valeur du poids de compostage (entre 0 et 1)");
+                newVal=reader.nextDouble();
+                res.editMetricParam("Compostage",newVal);
+                break;
+            case "O":
+                System.out.println("Veuillez entrer la nouvelle valeur du poids de ordures (entre 0 et 1)");
+                newVal=reader.nextDouble();
+                res.editMetricParam("Ordures",newVal);
+                break;
+            case "CIM":
+                System.out.println("Veuillez entrer la nouvelle valeur du cout idéal max des activités (entre 0 et 100)");
+                newVal=reader.nextDouble();
+                res.editMetricParam("CIM",newVal);
+                break;
+
+        }
         return true;
     }
 
     public void viewMunicipState() {
-        // TODO - implement ResidentController.viewMunicipState
-        throw new UnsupportedOperationException();
+        municipInfo.getLotState();
     }
 
-    /**
-     *
-     * @param id
-     * @param text
-     */
     public boolean reportProb()
     {
         return true;

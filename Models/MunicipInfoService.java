@@ -59,6 +59,29 @@ public class MunicipInfoService {
         return getBac(codeqr).prop;
     }
 
+    public void getLotState(){
+        Lot lot = this.getLot("1");
+        lot.type="Recyclage";
+        lot.parent="EcoCentre";
+        lot.sous_lots= new Lot[0];
+        lot.dateRamassage= new Date("01/11/2022");
+        lot.dateLivraison= new Date("10/11/2022");
+        lot.statut= "En traitement";
+        lot.qte_total=250;
+        lot.qte_traite=150;
+        lot.taux_rejet=20;
+        lot.cout=300;
+        lot.consomateurs= new Consomateur[3];
+        lot.activites="Bouteilles de verre, Cartons";
+        System.out.println("Date de ramassage: "+lot.dateRamassage.toString());
+        System.out.println("Date de livraison: "+lot.dateLivraison.toString());
+        System.out.println("Consommateurs: "+ Arrays.toString(lot.consomateurs));
+        System.out.println("Activitees maintenues: "+lot.activites);
+        System.out.println("Statut du lot: "+lot.statut);
+        System.out.println("Quantite total (en KG): "+lot.qte_total);
+        System.out.println("Quantite traitee (en KG): "+lot.qte_traite);
+    }
+
 
     private List<Consomateur> listConsommateur() {
         var consommateurList = new ArrayList<Consomateur>();

@@ -47,8 +47,11 @@ public class Resident {
         return this.metricParams;
     }
 
-    public boolean editMetricParams(){
+    public boolean editMetricParam(String param, double newVal){
+        this.metricParams.put(param,newVal);
         return true;
+        //Add case when param is unvalid
     }
+
 
 }

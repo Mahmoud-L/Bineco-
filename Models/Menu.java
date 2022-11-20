@@ -26,6 +26,7 @@ public class Menu {
                         displayMainCons();
                     }
                 }
+                break;
                 case 2 :
                     loggedUser = logCon.createUser();
                     System.out.println("Votre compte a été crée.");
@@ -34,6 +35,7 @@ public class Menu {
                     break;
                 case 0 :
                     System.out.println("Vous avez choisi de quitter l'application ");
+                    break;
                 default :
                     System.out.println("Veillez choisir uniquement un des 3 choix proposés");
             }
