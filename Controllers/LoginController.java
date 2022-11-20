@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class LoginController extends Controller {
 
+
     static UserRepository useRep = new UserRepository();
     static ResidentRepository resRep = new ResidentRepository();
     static ConsomRepository conRep = new ConsomRepository();

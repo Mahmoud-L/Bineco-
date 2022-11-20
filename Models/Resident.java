@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Resident {
 
@@ -9,7 +10,7 @@ public class Resident {
     private String phoneNumber;
     private String address;
     private ArrayList<Bac> bacs = new ArrayList<>();
-    private String[] metricParams;
+    private HashMap<String, Double> metricParams = new HashMap<String, Double>();
 
     public Resident(String id, String fn, String ln, String email, String num, String address) {
         this.id = id;
@@ -18,6 +19,10 @@ public class Resident {
         this.email=email;
         this.phoneNumber=num;
         this.address=address;
+        metricParams.put("Recyclage",0.333);
+        metricParams.put("Compostage",0.333);
+        metricParams.put("Ordures",0.333);
+        metricParams.put("CIM",5.0);
     }
 
     public String getId() {return this.id;}
@@ -38,8 +43,8 @@ public class Resident {
         //Add catch false for when element doesn't exist.
     }
 
-    public String[] getMetrics(){
-        return null;
+    public HashMap<String, Double> getMetricParams(){
+        return this.metricParams;
     }
 
     public boolean editMetricParams(){
