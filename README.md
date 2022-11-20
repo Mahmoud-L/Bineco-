@@ -10,12 +10,12 @@ que représente l’option et en cliquant sur entrée :
   Si vous ne voulez pas perdre du temps en créant un compte et que vous voulez directement plonger dans le menu principal, il existe déjà deux comptes
 différents que vous pouvez tester. Voici les coordonnées nécessaires : 
 
-									Compte résident : 
+		Compte résident : 
 Nom d’utilisateur :Mokh
 
 Mot de passe :Mahmoud
 
-								Compte consommateur : 
+	Compte consommateur : 
  Nom d’utilisateur :Mahmoud
 	
  Mot de passe :Mokh
