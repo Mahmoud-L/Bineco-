@@ -45,7 +45,6 @@ public class LoginController extends Controller {
 
     /**
      *
-     * @param infos
      * @return
      */
     public User createUser() {
@@ -80,16 +79,24 @@ public class LoginController extends Controller {
             case 2:
                 User newCon = new User(useRep.getNextId(), nomUtil, mdp, false);
                 useRep.add(newCon);
+                System.out.println("Veuillez entrer votre nom");
+                String name = reader.next();
+                System.out.println("Veuillez entrer votre code");
+                String code = reader.next();
+                System.out.println("Veuillez entrer votre e-mail");
+                String e_mail = reader.next();
+                System.out.println("Veuillez entrer votre numero de telephone");
+                String phoneNumber = reader.next();
+                System.out.println("Veuillez entrer votre adresse");
+                String addresCons = reader.next();
+                System.out.println("Veuillez indiquer le type de consommateur que vous etes");
+                String type = reader.next();
+                System.out.println("Veuillez indiquer votre capacité ");
+                int capacity = reader.nextInt();
+                System.out.println("Veuillez indiquer les activités que vous offrez");
+                String activities = reader.next();// a verifier
+                Consommateur con = new Consommateur(newCon.getId(),code,e_mail,phoneNumber,addresCons,type,capacity,activities);
                 return newCon;
-            private String id;
-            private String code;
-            private String name;
-            private String email;
-            private String phoneNumber;
-            private String address;
-            private String type;
-            private int capacity;
-            private String[] activities;
         }
         return null;
     }
