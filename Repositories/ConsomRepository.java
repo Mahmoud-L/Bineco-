@@ -3,7 +3,7 @@ import java.util.Objects;
 
 public class ConsomRepository implements IRepository {
 
-    ArrayList<Consommateur> conRep = new ArrayList<Consommateur>();
+    private static ArrayList<Consommateur> conRep = new ArrayList<Consommateur>();
     public boolean add(Object entity) {
         this.conRep.add((Consommateur) entity);
         return true;

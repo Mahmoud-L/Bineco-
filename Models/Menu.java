@@ -10,8 +10,8 @@ public class Menu {
         Scanner reader = new Scanner(System.in);
         int choix  = -1 ;
         while ( choix != 0) {
-            System.out.println(" Choisir une option : ");
-            System.out.println("[1] Se connecter ");
+            System.out.println("Choisir une option :");
+            System.out.println("[1] Se connecter");
             System.out.println("[2] S'inscrire");
             System.out.println("[0] Quitter ");
             choix = reader.nextInt();
@@ -20,7 +20,6 @@ public class Menu {
                     loggedUser = logCon.login();
                 if (loggedUser != null) {
                     if (loggedUser.isRes()) {
-
                         displayMain();
                     }
                     else {
@@ -30,7 +29,9 @@ public class Menu {
                 case 2 :
                     loggedUser = logCon.createUser();
                     System.out.println("Votre compte a été crée.");
-                    System.out.println("Vous pouvez maintenent choisir l'option se connecter ");
+                    System.out.println("Veillez maintenent vous conneter");
+                    choix = 1 ;
+                    break;
                 case 0 :
                     System.out.println("Vous avez choisi de quitter l'application ");
                 default :

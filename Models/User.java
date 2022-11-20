@@ -7,7 +7,8 @@ public class User {
     private String password;
     private boolean isRes;
 
-    public User(String i, String u, String p){
+    public User(String i, String u, String p, boolean r){
+        this.isRes =r ;
         this.id=i;
         this.username=u;
         this.password=p;

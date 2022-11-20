@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class UserRepository implements IRepository {
-    ArrayList<User> useRep = new ArrayList<User>();
+    private static ArrayList<User> useRep = new ArrayList<User>();
     @Override
 
     public boolean add(Object entity) {
@@ -20,6 +20,9 @@ public class UserRepository implements IRepository {
         );
         return true;
         //Catch exception return false
+    }
+    public String getNextId(){
+        return Integer.toString(useRep.size());
     }
 
     @Override
