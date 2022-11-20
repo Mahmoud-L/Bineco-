@@ -6,15 +6,19 @@ Il faut tout d’abord télécharger le code java nécessaire pour démarrer le 
 Au début on se trouve sur la page initiale du programme qui nous offre 3 choix différents qu’on sélectionne en écrivant le nombre
 que représente l’option et en cliquant sur entrée :
 
-1 Se connecter :
+1. Se connecter :
   Si vous ne voulez pas perdre du temps en créant un compte et que vous voulez directement plonger dans le menu principal, il existe déjà deux comptes
 différents que vous pouvez tester. Voici les coordonnées nécessaires : 
-  Compte résident : 
-    Nom d’utilisateur :Mokh
-    Mot de passe :Mahmoud
-  Compte consommateur : 
-    Nom d’utilisateur :Mahmoud
-    Mot de passe :Mokh
+
+									Compte résident : 
+Nom d’utilisateur :Mokh
+
+Mot de passe :Mahmoud
+
+								Compte consommateur : 
+ Nom d’utilisateur :Mahmoud
+	
+ Mot de passe :Mokh
     
 2. S’inscrire :
 Si vous désirez créer un nouveau compte (résident ou consommateur) et ensuite vous connectez avec votre propre nom d’utilisateur et mot de passe, ceci
