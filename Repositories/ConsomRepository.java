@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ConsomRepository implements IRepository {
 
@@ -33,5 +34,14 @@ public class ConsomRepository implements IRepository {
         }
         return null;
         //Catch exception when object is not found
+    }
+
+    public ArrayList<Consommateur> filterC(String cat) {
+        //https://stackoverflow.com/questions/16856554/filtering-an-arraylist-using-an-objects-field
+        return (ArrayList<Consommateur>) conRep.stream().filter(consommateur -> consommateur.getType().contains(cat)).collect(Collectors.toList());
+    }
+    public ArrayList<Consommateur> filterN(String name) {
+        //https://stackoverflow.com/questions/16856554/filtering-an-arraylist-using-an-objects-field
+        return (ArrayList<Consommateur>) conRep.stream().filter(consommateur -> consommateur.getName().contains(name)).collect(Collectors.toList());
     }
 }

@@ -30,8 +30,10 @@ public class ResidentController extends Controller {
 
 
     public boolean deleteBac() {
-        String code = "omek kahba";
-        return res.deleteBac(code);
+        System.out.println("Veuillez entrer le code du bac a supprimer :");
+        String bacToDelete = reader.next();
+        System.out.println("---Bac Supprime---");
+        return res.deleteBac(bacToDelete);
         //Catch exception return false
     }
 
@@ -193,15 +195,31 @@ public class ResidentController extends Controller {
         System.out.println("Pour filtrer par categories, veuillez entrer R,C, ou O (pour recyclage, compostage ou orudes.");
         System.out.println("Pour chercher par nom, veuillez entrer une partie du nom du consommateur");
         String search = reader.next();
+        ArrayList<Consommateur> searchResult;
         switch (search){
             case "R":
+                searchResult = conRep.filterC("Recyclage");
                 break;
             case "C":
+                searchResult= conRep.filterC("Compostage");
                 break;
             case "O":
+                searchResult= conRep.filterC("Ordures");
                 break;
             default:
+                searchResult= conRep.filterN(search);
                 break;
+        }
+        for (int i=0; i<searchResult.size(); i++){
+            System.out.println("["+i+"] : "+searchResult.get(i).getName());
+        }
+        System.out.println("Veuillez faire votre choix en entrant un chiffre");
+        int choix = reader.nextInt();
+        searchResult.get(choix).getInfos();
+        System.out.println("Est ce que vous voulez noter ce consommateur ? [Y/N]");
+        String rep = reader.next();
+        if (Objects.equals(rep, "Y")){
+            rateConsom(searchResult.get(choix).getId());
         }
     }
 
@@ -210,7 +228,16 @@ public class ResidentController extends Controller {
      * @param id
      */
     public void rateConsom(String id) {
-
+        Consommateur cons = (Consommateur) conRep.get(id);
+        String[] acts = cons.getActivities();
+        cons.incCount();
+        int note;
+        for (int i=0; i<acts.length; i++){
+            System.out.println(acts[i]+ ": Veuillez entrer une note entre 1 et 5");
+            note = reader.nextInt();
+            cons.addNote(note,i);
+        }
+        System.out.println("---Merci pour votre feedback");
     }
 
 }

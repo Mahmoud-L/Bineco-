@@ -43,9 +43,4 @@ public class ResidentRepository implements IRepository {
         //Catch exception return false
     }
 
-    public void show(){
-        for (Resident resident : resRep) {
-            System.out.println(resident);
-        }
-    }
 }

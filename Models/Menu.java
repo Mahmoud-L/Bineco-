@@ -4,7 +4,6 @@ public class Menu {
     static ResidentController resCon;
     static ConsomController consCon ;
     private User loggedUser = null;
-    private int indexPage = 0;
 
     public void displayLoginPage() {
         Scanner reader = new Scanner(System.in);
@@ -34,7 +33,7 @@ public class Menu {
                     choix = 1 ;
                     break;
                 case 0 :
-                    System.out.println("Vous avez choisi de quitter l'application ");
+                    loggedUser= logCon.logout();
                     break;
                 default :
                     System.out.println("Veillez choisir uniquement un des 3 choix proposés");

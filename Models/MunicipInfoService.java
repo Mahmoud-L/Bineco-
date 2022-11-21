@@ -38,19 +38,6 @@ public class MunicipInfoService {
     }
 
 
-    public boolean validateConsommateur(String code) {
-        // Appel MunicipInfo: get-consommateur(code)
-        Consomateur consomateur = getConsommateur(code);
-
-        return consomateur.code == code;
-    }
-
-    public boolean validateBac(String codeqr, String adresse) {
-        // Appel MunicipInfo: get-consommateur(code)
-        Bac bac = getBac(codeqr);
-
-        return bac.codeqr == codeqr;
-    }
 
     public Double getBacRemp(String codeqr){
         return getBac(codeqr).remp;
@@ -89,31 +76,6 @@ public class MunicipInfoService {
     }
 
 
-    private List<Consomateur> listConsommateur() {
-        var consommateurList = new ArrayList<Consomateur>();
-
-        return consommateurList;
-    }
-
-    /**
-     * Cette fonction simule l'appel à get-consommateur(code)
-     * @param code
-     * @return {@link Consomateur}
-     */
-    private Consomateur getConsommateur(String code) {
-        var consomateur = new Consomateur();
-
-        consomateur.code = "232";
-        consomateur.nom = "replastic";
-        consomateur.adresse = "";
-        consomateur.email = "info@replastic.com";
-        consomateur.telephone = "";
-        consomateur.details = "Nous transformons tout vos plastiques et verres jetées en bouteille prêt à être utilisé pour conserveau votre eau et vos brevages favoris";
-        consomateur.type_dechets = new String[] { "plastique", "verre" };
-        consomateur.capacite = "100 tonnes";
-
-        return consomateur;
-    }
 
     /**
      * Cette fonction simule l'appel à get-bac(codeqr)
@@ -128,15 +90,6 @@ public class MunicipInfoService {
         return null;
     }
 
-    /**
-     * Cette fonction simule l'appel à list-lot()
-     * @return
-     */
-    private List<Lot> listLot() {
-        var lotList = new ArrayList<Lot>();
-
-        return lotList;
-    }
 
     /**
      * Cette fonction simule l'appel à get-lot(numero)
@@ -149,13 +102,6 @@ public class MunicipInfoService {
         return lot;
     }
 
-    /**
-     * Cette fonction simule l'appel à post-message()
-     * @return
-     */
-    private boolean postMessage() {
-        return true;
-    }
 
     private class Consomateur {
         String code;

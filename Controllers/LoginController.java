@@ -25,29 +25,12 @@ public class LoginController extends Controller {
 
     }
 
-    /**
-     *
-     * @param user
-     */
-    public boolean logout(User user) {
-        // TODO - implement LoginController.logout
-        throw new UnsupportedOperationException();
+
+    public User logout() {
+        System.out.println("Vous avez choisi de quitter l'application ");
+        return null;
     }
 
-    /**
-     *
-     * @param user
-     * @param pwd
-     */
-    public boolean changePassword(User user, String pwd) {
-        // TODO - implement LoginController.changePassword
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     *
-     * @return
-     */
     public User createUser() {
         String nomUtil;
         String mdp;
@@ -97,6 +80,7 @@ public class LoginController extends Controller {
                 System.out.println("Veuillez indiquer les activités que vous offrez");
                 String activities = reader.next();// a verifier
                 Consommateur con = new Consommateur(newCon.getId(),code,e_mail,phoneNumber,addresCons,type,capacity,activities);
+                conRep.add(con);
                 return newCon;
         }
         return null;
