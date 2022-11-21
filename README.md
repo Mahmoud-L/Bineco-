@@ -11,14 +11,14 @@ que représente l’option et en cliquant sur entrée :
 différents que vous pouvez tester. Voici les coordonnées nécessaires : 
 
 		Compte résident : 
-Nom d’utilisateur :Mokh
+Nom d’utilisateur :Yacine
 
-Mot de passe :Mahmoud
+Mot de passe :pwd
 
 	Compte consommateur : 
- Nom d’utilisateur :Mahmoud
+ Nom d’utilisateur :cons1
 	
- Mot de passe :Mokh
+ Mot de passe :123
     
 2. S’inscrire :
 Si vous désirez créer un nouveau compte (résident ou consommateur) et ensuite vous connectez avec votre propre nom d’utilisateur et mot de passe, ceci
@@ -36,11 +36,11 @@ d’activité que vous pourrez faire en tant que résident.
 [1] Mes bacs
 [2] Municipalité
 [3] Métriques
-[4] Consommateur
+[4] Liste des consommateurs
 
   Vous pouvez vous amusez à découvrir chaque catégorie et jouer avec les paramètres et les options que propose chaque
 menu pour personnaliser votre expérience auprès de Bineco. En effet, n’hésitez pas à ajouter un bac par exemple en simulant
-un code QR et un type de bac bien particulier. 
+un code QR et un type de bac bien particulier (seulement entree "Recyclage", "Ordures" ou "Compostage". 
 
     Si vous avez choisi L’option se connecter et que vous êtes consommateurs :
 Le Menu consommateur est certes moins varié et riche que le Menu résident, cependant il n’est pas pour autant moins efficace.
