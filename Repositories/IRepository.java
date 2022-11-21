@@ -1,3 +1,7 @@
+/**
+ * Interfaces des repertoires (database) de Bineco
+ */
+
 public interface IRepository {
 
     /**

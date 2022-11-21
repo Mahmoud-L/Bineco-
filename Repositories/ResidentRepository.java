@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Classe de repertoire des residents
+ */
+
 public class ResidentRepository implements IRepository {
 
     private static ArrayList<Resident> resRep = new ArrayList<Resident>();

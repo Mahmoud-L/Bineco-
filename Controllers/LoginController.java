@@ -1,4 +1,7 @@
 import java.util.Scanner;
+/**
+ * Classe de controlleur de login (utilisateur)
+ */
 
 public class LoginController extends Controller {
 
@@ -6,11 +9,8 @@ public class LoginController extends Controller {
     static UserRepository useRep = new UserRepository();
     static ResidentRepository resRep = new ResidentRepository();
     static ConsomRepository conRep = new ConsomRepository();
+    MunicipInfoService municipInfoService = new MunicipInfoService();
     Scanner reader = new Scanner(System.in);
-
-    public LoginController(){
-        useRep.add(new User("1","Mokh","Mahmoud",true));
-    }
 
 
     public User login() {
@@ -27,7 +27,7 @@ public class LoginController extends Controller {
 
 
     public User logout() {
-        System.out.println("Vous avez choisi de quitter l'application ");
+        System.out.println("Vous avez choisi de vous deconnecter");
         return null;
     }
 
@@ -77,11 +77,15 @@ public class LoginController extends Controller {
                 String type = reader.next();
                 System.out.println("Veuillez indiquer votre capacité ");
                 int capacity = reader.nextInt();
-                System.out.println("Veuillez indiquer les activités que vous offrez");
-                String activities = reader.next();// a verifier
-                Consommateur con = new Consommateur(newCon.getId(),code,e_mail,phoneNumber,addresCons,type,capacity,activities);
-                conRep.add(con);
-                return newCon;
+                System.out.println("Veuillez indiquer les activités que vous offrez (En format activite1,activite2,activite3...");
+                String activities = reader.next();
+                Consommateur con = new Consommateur(newCon.getId(),code,name, e_mail,phoneNumber,addresCons,type,capacity,activities);
+                if (municipInfoService.validateConsom(name)){
+                    conRep.add(con);
+                    return newCon;
+                } else {
+                    System.out.println("Vous n'etes pas enregistre au pres de la municipalite.");
+                }
         }
         return null;
     }

@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Classe de repertoire des utilisateurs (login)
+ */
+
 public class UserRepository implements IRepository {
     private static ArrayList<User> useRep = new ArrayList<User>();
     @Override

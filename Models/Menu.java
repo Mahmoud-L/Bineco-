@@ -1,10 +1,16 @@
 import java.util.*;
+/**
+Classe du menu Bineco
+ */
+
 public class Menu {
     static LoginController logCon = new LoginController();
     static ResidentController resCon;
     static ConsomController consCon ;
     private User loggedUser = null;
 
+
+    //Menu de connection
     public void displayLoginPage() {
         Scanner reader = new Scanner(System.in);
         int choix  = -1 ;
@@ -29,17 +35,19 @@ public class Menu {
                 case 2 :
                     loggedUser = logCon.createUser();
                     System.out.println("Votre compte a été crée.");
-                    System.out.println("Veillez maintenent vous conneter");
+                    System.out.println("Veuillez maintenent vous conneter");
                     choix = 1 ;
                     break;
                 case 0 :
                     loggedUser= logCon.logout();
                     break;
                 default :
-                    System.out.println("Veillez choisir uniquement un des 3 choix proposés");
+                    System.out.println("Veuillez choisir uniquement un des 3 choix proposés");
             }
         }
     }
+
+    //Menu principal du consommateur
     public void displayMainCons() {
         consCon = new ConsomController(loggedUser.getId()) ;
         Scanner reader = new Scanner(System.in);
@@ -59,6 +67,8 @@ public class Menu {
             }
         }
     }
+
+    //Menu principal du resident
     public void displayMain() {
         resCon = new ResidentController(loggedUser.getId());
         Scanner reader = new Scanner(System.in);
@@ -88,21 +98,22 @@ public class Menu {
                     displayConsomPage();
                     break;
                 default:
-                    System.out.println("Veillez choisir uniquement un des 4 choix proposés");
+                    System.out.println("Veuillez choisir uniquement un des 4 choix proposés");
 
             }
         }
     }
 
+    //Menu de gestions des bacs
     public void displayBacPage() {
         Scanner reader = new Scanner(System.in);
         int choix  = -1 ;
         while (choix != 0) {
             System.out.println("Choisir une option : ");
-            System.out.println("[1] Ajouter mes bacs");
+            System.out.println("[1] Ajouter un bac");
             System.out.println("[2] Supprimer un bac");
             System.out.println("[3] Voir mes bacs");
-            System.out.println("[0] quitter");
+            System.out.println("[0] Quitter");
             choix = reader.nextInt();
             switch (choix) {
                 case 0:
@@ -118,11 +129,11 @@ public class Menu {
                     resCon.viewBacs();
                     break;
                 default :
-                    System.out.println("Veillez choisir uniquement un des 4 choix proposés");
+                    System.out.println("Veuillez choisir uniquement un des 4 choix proposés");
             }
         }
     }
-
+    //Menu de gestions des metriques
     public void displayMetriquesPage() {
         Scanner reader = new Scanner(System.in);
         int choix  = -1 ;
@@ -130,7 +141,7 @@ public class Menu {
             System.out.println("Choisir une option : ");
             System.out.println("[1] Voir les metriques");
             System.out.println("[2] Configurer les metriques ");
-            System.out.println("[0] quitter");
+            System.out.println("[0] Quitter");
             choix = reader.nextInt();
             switch (choix) {
                 case 0:
@@ -143,11 +154,12 @@ public class Menu {
                     resCon.setMetrics();
                     break;
                 default :
-                    System.out.println("Veillez choisir uniquement un des 3 choix proposés");
+                    System.out.println("Veuillez choisir uniquement un des 3 choix proposés");
             }
         }
     }
 
+    //Menu de la municipalite
     public void displayMunicipPage() {
         Scanner reader = new Scanner(System.in);
         int choix  = -1 ;
@@ -155,7 +167,7 @@ public class Menu {
             System.out.println("Choisir une option : ");
             System.out.println("[1] Voir l'etat de mes déchets ");
             System.out.println("[2] Signaler un Problème");
-            System.out.println("[0] quitter");
+            System.out.println("[0] Quitter");
             choix = reader.nextInt();
             switch (choix) {
                 case 0:
@@ -168,18 +180,19 @@ public class Menu {
                     resCon.reportProb();
                     break;
                 default :
-                    System.out.println("Veillez choisir uniquement un des 3 choix proposés");
+                    System.out.println("Veuillez choisir uniquement un des 3 choix proposés");
             }
         }
     }
 
+    //Menu de gestions des consommateurs
     public void displayConsomPage() {
         Scanner reader = new Scanner(System.in);
         int choix  = -1 ;
         while (choix != 0) {
             System.out.println("Choisir une option : ");
-            System.out.println("[1] Trouver un consommateur");
-            System.out.println("[0] quitter");
+            System.out.println("[1] Liste des consommateurs");
+            System.out.println("[0] Quitter");
             choix = reader.nextInt();
             switch (choix) {
                 case 0:
@@ -189,7 +202,7 @@ public class Menu {
                     resCon.findConsom();
                     break;
                 default :
-                    System.out.println("Veillez choisir uniquement un des 2 choix proposés");
+                    System.out.println("Veuillez choisir uniquement un des 2 choix proposés");
             }
         }
     }

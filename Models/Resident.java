@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Classe de resident
+ */
 public class Resident {
 
     private String id;
@@ -26,8 +29,8 @@ public class Resident {
     }
 
     public String getId() {return this.id;}
-
     public ArrayList<Bac> getBacs() {return this.bacs;}
+    public HashMap<String, Double> getMetricParams(){return this.metricParams;}
 
     public void addBac(Bac b){
         this.bacs.add(b);
@@ -43,10 +46,6 @@ public class Resident {
         //Add catch false for when element doesn't exist.
     }
 
-    public HashMap<String, Double> getMetricParams(){
-        return this.metricParams;
-    }
-
     public boolean editMetricParam(String param, double newVal){
         this.metricParams.put(param,newVal);
         return true;
@@ -55,6 +54,4 @@ public class Resident {
     public String getReportInfos(){
         return (this.firstName+","+this.lastName+","+this.address+","+this.email);
     }
-
-
 }

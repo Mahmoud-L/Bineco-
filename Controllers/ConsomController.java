@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * Classe de controlleur de consommateur
+ */
+
 public class ConsomController extends Controller {
 
     static ConsomRepository conRep = new ConsomRepository();

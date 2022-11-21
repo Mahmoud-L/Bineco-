@@ -1,5 +1,8 @@
 import java.util.Objects;
 
+/**
+ * Classe d'utilisateur
+ */
 public class User {
 
     private String id;

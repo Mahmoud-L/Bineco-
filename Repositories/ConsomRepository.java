@@ -2,6 +2,10 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+/**
+ * Classe de repertoire des consommateurs
+ */
+
 public class ConsomRepository implements IRepository {
 
     private static ArrayList<Consommateur> conRep = new ArrayList<Consommateur>();

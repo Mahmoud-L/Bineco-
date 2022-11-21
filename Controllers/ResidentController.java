@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * Classe de controlleur de resident
+ */
+
 public class ResidentController extends Controller {
 
     static ResidentRepository resRep = new ResidentRepository();
@@ -14,7 +18,6 @@ public class ResidentController extends Controller {
     Resident res;
 
     public ResidentController(String id){
-        resRep.add(new Resident("1","mokh","mahmoud","asba","omek","zebi"));
         this.res=(Resident) resRep.get(id);
     }
 
@@ -41,7 +44,12 @@ public class ResidentController extends Controller {
     public void viewBacs() {
         ArrayList<Bac> bacs = res.getBacs();
         for (Bac bac : bacs) {
-            System.out.println(bac);
+            System.out.println("Code QR: "+bac.getCode());
+            System.out.println("Nom: "+bac.getName());
+            System.out.println("Type: "+bac.getCode());
+            System.out.println("Niveau de remplissage: "+municipInfo.getBacRemp(bac.getCode()));
+            System.out.println("Proportions: "+municipInfo.getBacProp(bac.getCode()).toString());
+            System.out.println("------------------------------");
         }
         if (bacs.size()==0) {System.out.println("Vous n'avez aucun bac");}
     }
@@ -237,7 +245,7 @@ public class ResidentController extends Controller {
             note = reader.nextInt();
             cons.addNote(note,i);
         }
-        System.out.println("---Merci pour votre feedback");
+        System.out.println("---Merci pour votre feedback---");
     }
 
 }
