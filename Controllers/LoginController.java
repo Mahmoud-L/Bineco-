@@ -73,7 +73,8 @@ public class LoginController extends Controller {
                 String phoneNumber = reader.next();
                 System.out.println("Veuillez entrer votre adresse");
                 String addresCons = reader.next();
-                System.out.println("Veuillez indiquer le type de consommateur que vous etes");
+                System.out.println("Veuillez indiquer le type de consommateur que vous etes (EX : Recyclage," +
+                        "Compostage,Ordures)");
                 String type = reader.next();
                 System.out.println("Veuillez indiquer votre capacité ");
                 int capacity = reader.nextInt();
