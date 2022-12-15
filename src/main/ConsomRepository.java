@@ -1,3 +1,6 @@
+package main;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -6,9 +9,21 @@ import java.util.stream.Collectors;
  * Classe de repertoire des consommateurs
  */
 
-public class ConsomRepository implements IRepository {
+public class ConsomRepository implements IRepository, Serializable {
+    private static final String CONS_DATA_FILE_NAME = "src/resources/consomData.txt";
+    private static ArrayList<Consommateur> conRep = new ArrayList<>();
 
-    private static ArrayList<Consommateur> conRep = new ArrayList<Consommateur>();
+    public void init() {
+        try {
+            FileInputStream fis = new FileInputStream(CONS_DATA_FILE_NAME);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            this.conRep = (ArrayList<Consommateur>) ois.readObject();
+            ois.close();
+            fis.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     public boolean add(Object entity) {
         this.conRep.add((Consommateur) entity);
         return true;
@@ -47,5 +62,19 @@ public class ConsomRepository implements IRepository {
     public ArrayList<Consommateur> filterN(String name) {
         //https://stackoverflow.com/questions/16856554/filtering-an-arraylist-using-an-objects-field
         return (ArrayList<Consommateur>) conRep.stream().filter(consommateur -> consommateur.getName().contains(name)).collect(Collectors.toList());
+    }
+
+    @Override
+    public void storeRepo() {
+        try {
+            File file = new File(CONS_DATA_FILE_NAME);
+            FileOutputStream fis = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fis);
+            oos.writeObject(conRep);
+            oos.close();
+            fis.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

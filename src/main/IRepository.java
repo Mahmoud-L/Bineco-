@@ -1,3 +1,5 @@
+package main;
+
 /**
  * Interfaces des repertoires (database) de Bineco
  */
@@ -28,5 +30,7 @@ public interface IRepository {
      * @param id
      */
     Object get(String id);
+
+    void storeRepo();
 
 }

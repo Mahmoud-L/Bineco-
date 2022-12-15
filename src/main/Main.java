@@ -1,3 +1,5 @@
+package main;
+
 public class Main {
     static Menu menu = new Menu();
 
@@ -6,9 +8,14 @@ public class Main {
         menu.displayLoginPage();
     }
     private static void init() {
-        ConsomRepository conRep = new ConsomRepository();
-        ResidentRepository resRep = new ResidentRepository();
         UserRepository useRep = new UserRepository();
+        ResidentRepository resRep = new ResidentRepository();
+        ConsomRepository conRep = new ConsomRepository();
+        useRep.init();
+        resRep.init();
+        conRep.init();
+
+        /* //Normalement, ça devrait fonctionner, sinon, décommenter tout ça v, rouler une fois puis recommenter :)
         useRep.add(new User("1","Yacine","pwd",true));
         useRep.add(new User("2","Mahmoud","pwd",true));
         useRep.add(new User("3","Mouhib","pwd",true));
@@ -104,5 +111,6 @@ public class Main {
         useRep.add(ucon9);
         conRep.add(con10);
         useRep.add(ucon10);
+*/
     }
 }

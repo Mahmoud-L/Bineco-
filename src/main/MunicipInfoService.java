@@ -1,3 +1,5 @@
+package main;
+
 import java.util.*;
 
 /**
@@ -132,9 +134,9 @@ public class MunicipInfoService {
         System.out.println("Votre report a ete envoye.");
     }
 
-    public boolean validateConsom(String name){
+    public boolean validateConsom(String code){
         for (Consommateur cons : repCons){
-            if (Objects.equals(cons.nom, name)) {return true;}
+            if (Objects.equals(cons.code, code)) {return true;}
         }
         return false;
     }

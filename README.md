@@ -31,7 +31,7 @@ Ce choix ferme l’application et on sort du programme.
 Une fois connecté il existe deux menus différents selon la nature de l’utilisateur. 
 
     Si vous avez choisit L’option se connecter et que vous êtes résident :
-Un Menu spécial résident apparaitra dans le terminal avec 4 différentes options. Ces options représentent les 4 catégories
+Un main.Menu spécial résident apparaitra dans le terminal avec 4 différentes options. Ces options représentent les 4 catégories
 d’activité que vous pourrez faire en tant que résident.
 [1] Mes bacs
 [2] Municipalité
@@ -43,7 +43,7 @@ menu pour personnaliser votre expérience auprès de Bineco. En effet, n’hési
 un code QR et un type de bac bien particulier (seulement entree "Recyclage", "Ordures" ou "Compostage". 
 
     Si vous avez choisi L’option se connecter et que vous êtes consommateurs :
-Le Menu consommateur est certes moins varié et riche que le Menu résident, cependant il n’est pas pour autant moins efficace.
+Le main.Menu consommateur est certes moins varié et riche que le main.Menu résident, cependant il n’est pas pour autant moins efficace.
 En effet, nous avons suivi les directives et le consommateur ne pourra que notifier les résidents ou quitter l’application. 
 
 Amusez-vous bien ! 
