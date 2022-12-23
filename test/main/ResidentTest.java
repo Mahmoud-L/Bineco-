@@ -20,10 +20,52 @@ class ResidentTest {
         testResident.addBac(new Bac("C","bacC","Ordures"));
     }
 
-    @Test
-    void addBac() {
-        //TODO ???
+   @Test
+    void addBacResident() {
+        ArrayList<Bac> oldBacs = (ArrayList<Bac>) testResident.getBacs().clone();
+        Bac testbac= new Bac("###","###","###")
+        testResident.addBac(testbac);
+
+        assertNotEquals(oldBacs.size(), testResident.getBacs().size());
+        assertNotEquals(oldBacs.get(oldBacs.size()-1), testResident.getBacs().get(getBacs().size()-1));
     }
+    @Test
+    void addActivitywithinvalidargumentThrowsException() {
+        Consommateur testcon = new Consommateur ("00","00","###","@","123","123","test",0,"test")
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    testcon.addActivity(123);
+                });
+    }
+    void addAactivityConsommateur() {
+         Consommateur testcon = new Consommateur ("00","00","###","@","123","123","test",0,"test")
+        ArrayList<string> oldactivities = (ArrayList<string>) testcon. getActivities() ;
+        testcon.addActivity("activity")
+
+        assertNotEquals(oldactivities.size(), testcon. getActivities().size());
+        assertNotEquals(oldactivities.get(oldactivities.size()-1), testcon. getActivities().get( getActivities().size()-1));
+    }
+    @Test
+    void deleteActivitywithinvalidargumentThrowsException() {
+        Consommateur testcon = new Consommateur ("00","00","###","@","123","123","test",0,"test")
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    testcon.deleteActivity(-1);
+                });
+    }
+     void deleteAactivityConsommateur() {
+         Consommateur testcon = new Consommateur ("00","00","###","@","123","123","test",0,"test")
+        ArrayList<string> oldactivities = (ArrayList<string>) testcon. getActivities() ;
+         testcon.addActivity("activity")
+         testcon.addActivity("activity1")
+        testcon.deleteActivity(0)
+
+        assertNotEquals(oldactivities.size(), testcon. getActivities().size());
+        assertNotEquals(oldactivities.get(0), testcon. getActivities().get(0));
+    }                       
+                            
+    
+
 
     @Test
     void deleteBacWithNegativeIndexThrowsException() {
