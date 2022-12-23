@@ -37,6 +37,7 @@ class ResidentTest {
                     testcon.addActivity(123);
                 });
     }
+     @Test
     void addAactivityConsommateur() {
          Consommateur testcon = new Consommateur ("00","00","###","@","123","123","test",0,"test")
         ArrayList<string> oldactivities = (ArrayList<string>) testcon. getActivities() ;
@@ -53,6 +54,7 @@ class ResidentTest {
                     testcon.deleteActivity(-1);
                 });
     }
+    @Test
      void deleteAactivityConsommateur() {
          Consommateur testcon = new Consommateur ("00","00","###","@","123","123","test",0,"test")
         ArrayList<string> oldactivities = (ArrayList<string>) testcon. getActivities() ;
