@@ -14,20 +14,13 @@ class ConsommateurTest{
 
     @BeforeEach
     public void setup() {
-        testCons = new Consommateur("123", "test", "test", "@", "1234567890", "test", "test", "test" 42, "test");
+        testCons = new Consommateur("123", "test", "test", "@", "1234567890", "test", "test",  42, "test,test1");
     }
 
     @Test
-    void addActivitywithinvalidargumentThrowsException() {
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    testCons.addActivity(123);
-                });
-    }
-    @Test
 
-    void addActivityConsommateurAddsActivity() {
-        ArrayList<string> oldactivities = (ArrayList<string>) testCons.getActivities() ;
+    void addActivityConsommateurShouldAddActivity() {
+        ArrayList<String> oldactivities = (ArrayList<String>) testCons.getActivities().clone() ;
         testCons.addActivity("activity");
 
         assertNotEquals(oldactivities.size(), testCons.getActivities().size());
@@ -38,25 +31,26 @@ class ConsommateurTest{
     void deleteActivitywithinvalidargumentThrowsException() {
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    testcon.deleteActivity(-1);
+                    testCons.deleteActivity(-1);
                 });
     }
     @Test
-    void deleteActivityConsommateurDeletesActivity() {
-        ArrayList<string> oldactivities = (ArrayList<string>) testcon.getActivities() ;
-        testCons.deleteActivity(0);
+    void deleteActivityConsommateurShouldDeleteActivity() {
+        ArrayList<String> oldactivities = (ArrayList<String>) testCons.getActivities().clone() ;
+        testCons.deleteActivity(testCons.getActivities().size()-1);
 
-        assertNotEquals(oldactivities.size(), testCons.getActivities().size());
+        assertEquals(oldactivities.size()-1, testCons.getActivities().size());
         assertNotEquals(oldactivities.get(oldactivities.size()-1),
-                testCons.getActivities().get(testCons0.getActivites().size()-1));
+                testCons.getActivities().get(testCons.getActivities().size()-1));
     }
+    @Test
     void deleteActivityAddActivityConsommateurSanitary() {
-        ArrayList<string> oldactivities = (ArrayList<string>) testcon.getActivities() ;
+        ArrayList<String> oldactivities = (ArrayList<String>) testCons.getActivities() ;
         testCons.addActivity("activity");
-        testCons.deleteActivity(oldactivities.size());
+        testCons.deleteActivity(testCons.getActivities().size()-1);
 
         assertEquals(oldactivities.size(), testCons.getActivities().size());
-        assertNotEquals(oldactivities.get(oldactivities.size()-1),
+        assertEquals(oldactivities.get(oldactivities.size()-1),
                 testCons.getActivities().get(oldactivities.size()-1));
     }
 }

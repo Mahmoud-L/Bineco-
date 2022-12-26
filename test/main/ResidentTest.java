@@ -90,10 +90,10 @@ class ResidentTest {
     @Test
     void editMetricParamsWithValidParamShouldEditParam() {
         var oldParams = (HashMap<String, Double>) testResident.getMetricParams().clone();
-        testResident.editMetricParam("Recyclage", 10.0);
+        testResident.editMetricParam("Recyclage", 1.0);
         assertNotEquals(oldParams.get("Recyclage"), testResident.getMetricParams().get("Recyclage"));
 
-        testResident.editMetricParam("Compostage", 10.0);
+        testResident.editMetricParam("Compostage", 1.0);
         assertNotEquals(oldParams.get("Compostage"), testResident.getMetricParams().get("Compostage"));
 
     }

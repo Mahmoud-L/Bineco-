@@ -46,7 +46,6 @@ public class Consommateur implements Serializable {
         this.capacity= cap;
         this.activities= new ArrayList<>();
         Collections.addAll(this.activities, act.split(","));
-        System.out.println(this.activities);
         this.notes= new ArrayList<Double>(Collections.nCopies(activities.size(), 0.0));
         this.noteCount=new ArrayList<Integer>(Collections.nCopies(activities.size(), 0));;
     }
