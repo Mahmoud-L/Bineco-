@@ -1,10 +1,10 @@
 package main;
 
 import java.util.*;
-/**
-Classe du menu Bineco
- */
 
+/**
+ Classe Principale pour l'affichage du menu Bineco.
+ */
 public class Menu {
     static LoginController logCon = new LoginController();
     static ResidentController resCon;
@@ -12,6 +12,9 @@ public class Menu {
     private User loggedUser = null;
 
     //Menu de connection
+    /**
+     *  Afficher le menu de demarrage ou il est possible de : Se connecter, S'inscrire, Quitter.
+     */
     public void displayLoginPage() {
         Scanner reader = new Scanner(System.in);
         int choix  = -1 ;
@@ -47,9 +50,11 @@ public class Menu {
             }
         }
     }
-
     //*****  RESIDENT  *****//
 
+    /**
+     * Afficherle menu principale quand on se connecte en tant que resident.
+     */
     //menu principal du resident
     public void displayMainRes() {
         resCon = new ResidentController(loggedUser.getId());
@@ -90,6 +95,10 @@ public class Menu {
         }
     }
 
+    /**
+     *  Afficher le menu des activites que peut faire le resident sur les bacs qui sont : Ajouter un bac,
+     *  Supprimer un bac, Voir mes bacs, Quitter.
+     */
     //menu de gestions des bacs
     public void displayBacPage() {
         Scanner reader = new Scanner(System.in);
@@ -120,6 +129,11 @@ public class Menu {
         }
     }
 
+    /**
+     * Afficher les activites qui sont en relation avec la municipalite : Voir l'etat de mes dechets
+     * , Signaler un Probleme, Quitter.
+     */
+
     //Menu de la municipalite
     public void displayMunicipPage() {
         Scanner reader = new Scanner(System.in);
@@ -146,6 +160,11 @@ public class Menu {
         }
     }
 
+    /**
+     * Afficher les activites que peut faire le resident sur les metriques qui sont : Voir les metriques,
+     *  Configurer les metriques, Quitter
+     */
+
     //menu de gestions des metriques
     public void displayMetriquesPage() {
         Scanner reader = new Scanner(System.in);
@@ -171,6 +190,11 @@ public class Menu {
             }
         }
     }
+    /**
+     *  Afficher les activties qui sont en relation avec le consommateur qui sont : Liste des consommateurs,
+     *  Quitter.
+     */
+
 
     //Menu de gestions des consommateurs
     public void displayConsomPage() {
@@ -193,6 +217,9 @@ public class Menu {
             }
         }
     }
+    /**
+     *  Afficher les options pour modifier un compte de residents.
+     */
     public void displayResEditAccount() {
         Scanner reader = new Scanner(System.in);
         int choix = -1;
@@ -235,8 +262,13 @@ public class Menu {
     }
 
 
+
     //***** CONSOMMATEUR *****//
 
+    /**
+     *  Afficher le menu principal en tant que consommateur ou le consommateur peut : Notifier les residents,
+     *  Voir mes activites, Modifier mon compte, Quitter.
+     */
     //Menu principal du consommateur
     public void displayMainCons() {
         consCon = new ConsomController(loggedUser.getId()) ;
@@ -268,6 +300,10 @@ public class Menu {
         }
     }
 
+    /**
+     * Afficher les options que peut faire le consommateur sur ses activites qui sont : Ajouter une activite
+     * , Supprimer une activite, Voir mes activites, Quitter.
+     */
     public void displayActivities() {
         Scanner reader = new Scanner(System.in);
         int choix  = -1 ;
@@ -297,6 +333,9 @@ public class Menu {
         }
     }
 
+    /**
+     *  Afficher les options pour modifier le compte consommateur.
+     */
     public void displayConsEditAccount() {
         Scanner reader = new Scanner(System.in);
         int choix = -1;

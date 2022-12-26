@@ -18,6 +18,15 @@ public class Resident implements Serializable {
     private ArrayList<Bac> bacs = new ArrayList<>();
     private HashMap<String, Double> metricParams = new HashMap<String, Double>();
 
+    /**
+     * Initialiser un resident avec les paremetres suivants.
+     * @param id
+     * @param fn
+     * @param ln
+     * @param email
+     * @param num
+     * @param address
+     */
     public Resident(String id, String fn, String ln, String email, String num, String address) {
         this.id = id;
         this.firstName=fn;
@@ -31,37 +40,75 @@ public class Resident implements Serializable {
         metricParams.put("CIM",5.0);
     }
 
+    /**
+     *Avoir l'id du resident.
+     */
     public String getId() {
         return this.id;
     }
 
+    /**
+     * Configurer le prenom du resident.
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     * Configurer le nom de famille du resident.
+     * @param lastName
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     * Configurer l'email du resident.
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * Configurer le numero de telephone du resident.
+     * @param phoneNumber
+     */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * Configurer l'adresse du resident.
+     * @param address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     * Avoir les bacs du resident
+     */
     public ArrayList<Bac> getBacs() {return this.bacs;}
+    /**
+     * Avoir les parametres des metriques.
+     * @return
+     */
     public HashMap<String, Double> getMetricParams(){return this.metricParams;}
 
+    /**
+     * Ajouter un bac
+     * @param b
+     */
     public void addBac(Bac b){
         this.bacs.add(b);
     }
 
+    /**
+     * Suprrimer un bac
+     * @param index
+     */
     public boolean deleteBac(int index){
         if (index < 0 || index >= this.bacs.size()) {
             throw new IllegalArgumentException("L'index du bac n'est pas valide");
@@ -71,6 +118,12 @@ public class Resident implements Serializable {
         return true;
     }
 
+    /**
+     * Modifier les parametres des metriques avec de nouvelles valeurs.
+     * @param param
+     * @param newVal
+     * @return
+     */
     public boolean editMetricParam(String param, double newVal){
         if (!this.metricParams.containsKey(param)) {
             throw new IllegalArgumentException("Le paramètre entré n'existe pas");
@@ -85,6 +138,10 @@ public class Resident implements Serializable {
         return true;
     }
 
+    /**
+     * Avoir le prenom , nom adresse et email d'un resident
+     * @return prenom,nom,adresse,e-mail
+     */
     public String getReportInfos(){
         return (this.firstName+","+this.lastName+","+this.address+","+this.email);
     }

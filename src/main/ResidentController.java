@@ -18,10 +18,17 @@ public class ResidentController extends Controller {
 
     Resident res;
 
+    /**
+     *lier l'objet resident avec le resident connecte actuellement
+     * @param id
+     */
     public ResidentController(String id){
         this.res=(Resident) resRep.get(id);
     }
 
+    /**
+     * Ajoute un bac avec son code Qr, son nom et son type
+     */
     public void addBac() {
         System.out.println("Veuillez entrez le code QR du bac");
         String c = reader.next();
@@ -33,6 +40,9 @@ public class ResidentController extends Controller {
         resRep.storeRepo();
     }
 
+    /**
+     * Supprimer un bac a partir de la liste des bacs du residents
+     */
     public boolean deleteBac() {
         ArrayList<Bac> bacs = res.getBacs();
         if (bacs.size() > 0) {
@@ -60,6 +70,11 @@ public class ResidentController extends Controller {
 
     }
 
+
+    /**
+     *Afficher les bacs d'un residents avec leurs Code Qr ,le nom ,le type ,le niveau de remplissage et
+     * sa proportion
+     */
     public void viewBacs() {
         ArrayList<Bac> bacs = res.getBacs();
         for (Bac bac : bacs) {
@@ -74,6 +89,9 @@ public class ResidentController extends Controller {
     }
 
 
+    /**
+     * Calcul du facteur PNU ,du facteur PNU et du score ECOLO et affichage de ces 3 metriques .
+     */
     public void viewMetrics() {
         if (this.res.getBacs().size() == 0) {
             System.out.println("Comme vous n'avez pas de bac, nous ne pouvons pas calculer vos métriques");
@@ -176,6 +194,9 @@ public class ResidentController extends Controller {
         }
     }
 
+    /**
+     * Modifier les metriques en selectionnant R C O ou CIM
+     */
     public boolean setMetrics() {
         HashMap<String, Double> metricParams = res.getMetricParams();
         System.out.println("Vos parametres de métriques actuelles sont (Poids de chaque categorie dans le calcul et Cout ideal max des activites:");
@@ -240,10 +261,16 @@ public class ResidentController extends Controller {
     }
 
 
+    /**
+     *Afficher l'etat du lot donnee par MunicipInfo.
+     */
     public void viewMunicipState() {
         municipInfo.getLotState();
     }
 
+    /**
+     * Signaler un probleme ecris par l'utilisateur
+     */
 
     public boolean reportProb() {
         System.out.println("Veuillez entrer une breve description de votre probleme:");
@@ -253,6 +280,9 @@ public class ResidentController extends Controller {
     }
 
 
+    /**
+     * Trouver un consommateur en utilisant par nom ou bien par filtage de type : R C ou O .
+     */
     public void findConsom() {
         System.out.println("Pour filtrer par categories, veuillez entrer R,C, ou O (pour recyclage, compostage ou ordures)");
         System.out.println("Pour chercher par nom, veuillez entrer une partie du nom du consommateur");
@@ -285,6 +315,10 @@ public class ResidentController extends Controller {
         }
     }
 
+    /**
+     * Donner une note a un consommateur
+     * @param id
+     */
     public void rateConsom(String id) {
         Consommateur cons = (Consommateur) conRep.get(id);
         ArrayList<String> acts = cons.getActivities();
@@ -305,6 +339,9 @@ public class ResidentController extends Controller {
         System.out.println("---Merci pour votre feedback---");
     }
 
+    /**
+     * Changer le nom et prenom du resident deja connecte .
+     */
     public void changeName() {
         String firstName, lastName;
         System.out.println("Veuillez entrer votre nouveau prénom");
@@ -315,6 +352,10 @@ public class ResidentController extends Controller {
         res.setLastName(lastName);
         resRep.storeRepo();
     }
+
+    /**
+     * Changer l'email du resident deja connecte.
+     */
 
     public void changeEmail() {
         String email;
@@ -331,6 +372,9 @@ public class ResidentController extends Controller {
         }
     }
 
+    /**
+     * Changer le numero du telephone du resident deja connecte .
+     */
     public void changePhoneNumber() {
         String phoneNumber;
         System.out.println("Veuillez entrer votre nouveau numéro de téléphone");
@@ -347,6 +391,10 @@ public class ResidentController extends Controller {
 
     }
 
+
+    /**
+     * Changer l'adresse de l'utilisateur deja connecte.
+     */
     public void changeAddress() {
         String address;
         System.out.println("Veuillez entrer votre nouvelle adresse");

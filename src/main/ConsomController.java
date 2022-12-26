@@ -18,6 +18,9 @@ public class ConsomController extends Controller {
         this.consom = (Consommateur) conRep.get(id);
     }
 
+    /**
+     * Notifie les residents
+     */
     public void notifyResids() {
         String msg;
         System.out.println("Veuillez entrer le message que vous souhaitez envoyer aux résidents");
@@ -26,6 +29,10 @@ public class ConsomController extends Controller {
         System.out.println("Le message a été envoyé!");
     }
 
+    /**
+     * envoie un mail a chaque resident
+     * @param message
+     */
     public void notifyResids(String message) {
         for (int i=0; i<resRep.size(); i++){
             //Send email to each res
@@ -33,6 +40,9 @@ public class ConsomController extends Controller {
         }
     }
 
+    /**
+     * ajouter une activite pour un consommateur
+     */
     public void addActivity() {
         String activity;
         System.out.println("Veuillez entrer une courte description de l'activité");
@@ -43,6 +53,9 @@ public class ConsomController extends Controller {
         conRep.storeRepo();
     }
 
+    /**
+     * modifier une activite pour un consommateur
+     */
     public void editActivities() {
         int choix = -1, activity;
         System.out.println("Voici votre liste d'activités:");
@@ -80,10 +93,16 @@ public class ConsomController extends Controller {
         }
     }
 
+    /**
+     * Afficher toutes les activites maintenu par le consomnateur
+     */
     public void viewActivities() {
         consom.displayActivitiesWithGrades();
     }
 
+    /**
+     * Changer le nom d'un consommateur
+     */
     public void changeName() {
         String name;
         System.out.println("Veuillez entrer votre nouveau nom");
@@ -92,6 +111,9 @@ public class ConsomController extends Controller {
         conRep.storeRepo();
     }
 
+    /**
+     * Changer le e-mail d'un consommateur
+     */
     public void changeEmail() {
         String email;
         System.out.println("Veuillez entrer votre nouvelle adresse courriel");
@@ -107,6 +129,9 @@ public class ConsomController extends Controller {
         }
     }
 
+    /**
+     * Changer le numero de telephone d'un consommateur
+     */
     public void changePhoneNumber() {
         String phoneNumber;
         System.out.println("Veuillez entrer votre nouveau numéro de téléphone");
@@ -122,6 +147,9 @@ public class ConsomController extends Controller {
         }
     }
 
+    /**
+     * Changer l'adresse d'un consommateur
+     */
     public void changeAddress() {
         String address;
         System.out.println("Veuillez entrer votre nouvelle adresse");
@@ -130,6 +158,9 @@ public class ConsomController extends Controller {
         conRep.storeRepo();
     }
 
+    /**
+     * Changer le type d'un consommateur
+     */
     public void changeType() {
         String type;
         System.out.println("Veuillez entrer votre nouveau type");
@@ -138,6 +169,9 @@ public class ConsomController extends Controller {
         conRep.storeRepo();
     }
 
+    /**
+     * Changer la capacite d'un consommateur
+     */
     public void changeCapacity() {
         int quantity;
         System.out.println("Veuillez entrer votre nouvelle quantité");

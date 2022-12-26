@@ -17,6 +17,11 @@ public class LoginController extends Controller {
     User user;
 
 
+    /**
+     * Lire le nom d'utilisateur et le mot de passe de l'utilisateur
+     * @return utilisateur liee avec son nom d'utilisateur et son mot de passe.
+     */
+
     public User login() {
         String u;
         String p;
@@ -30,6 +35,10 @@ public class LoginController extends Controller {
 
     }
 
+
+    /**
+     * Deconnexion de la session.
+     */
     public User logout() {
         System.out.println("Vous avez choisi de vous déconnecter");
         try {
@@ -42,6 +51,11 @@ public class LoginController extends Controller {
         return null;
     }
 
+    /**
+     * Creation d'un nouvelle utilisateur (consommateur ou resident) avec les informations nécessaire dans chaque
+     * cas.
+     * @return
+     */
     public User createUser() {
         String phoneNumber, email, address;
         String nomUtil;
@@ -153,6 +167,9 @@ public class LoginController extends Controller {
         return null;
     }
 
+    /**
+     * Changer le nom d'utilisateur de l'utilisateur deja connecte.
+     */
     public void changeUsername() {
         String userName;
         System.out.println("Veuillez entrer votre nouveau nom d'utilisateur");
@@ -161,6 +178,9 @@ public class LoginController extends Controller {
         useRep.storeRepo();
     }
 
+    /**
+     * Changer le mot de passe  de l'utilisateur deja connecte.
+     */
     public void changePassword() {
         String password;
         System.out.println("Veuillez entrer votre nouveau mot de passe");

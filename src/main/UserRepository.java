@@ -13,7 +13,7 @@ public class UserRepository implements IRepository, Serializable {
     private static ArrayList<User> useRep = new ArrayList<>();
 
     /**
-     * Extracts user data from the userData file.
+     * Initialiser la valeur du repertoire des utilisateurs avec la data contenu dans le fichier txt
      */
     public void init() {
         try {
@@ -27,6 +27,11 @@ public class UserRepository implements IRepository, Serializable {
         }
     }
 
+
+    /**
+     * Ajouter un utilisateur au repertoire des utilisateurs.
+     * @param entity
+     */
     @Override
     public boolean add(Object entity) {
         if (!(entity instanceof User)) return false;
@@ -34,7 +39,12 @@ public class UserRepository implements IRepository, Serializable {
         return true;
         //Catch exception return false
     }
-
+    /**
+     * Modifier l'un des utilisateurs du repertoire.
+     * @param id
+     * @param entity
+     * @return
+     */
     @Override
     public boolean edit(String id, Object entity) {
         if (!(entity instanceof User)) return false;
@@ -45,16 +55,30 @@ public class UserRepository implements IRepository, Serializable {
         return true;
         //Catch exception return false
     }
+    /**
+     * Avoir la taille du repertoire
+     * @return la taille du repertoire
+     */
     public String getNextId(){
         return Integer.toString(useRep.size());
     }
 
+    /**
+     * Enleve un utilisateur du repertoire.
+     * @param id
+     */
     @Override
     public boolean remove(String id) {
         this.useRep.remove((User) get(id));
         return true;
     }
 
+
+    /**
+     * Extraire l'objet utilisateur du repertoire a partir de son id
+     * @param id
+     * @return l'objet utilisateur avec l'id donnee en parametres.
+     */
     @Override
     public Object get(String id) {
         for (User user : useRep) {
@@ -65,6 +89,12 @@ public class UserRepository implements IRepository, Serializable {
         return null;
     }
 
+    /**
+     * Extraire l'utilisateur correspondant au nom d'utilisateur (u) et le mot de passe (p) donnee en parametres.
+     * @param u
+     * @param p
+     * @return
+     */
     public Object has(String u, String p) {
         for (User user : useRep) {
             if (Objects.equals(user.getUsername(), u) && Objects.equals(user.getPwd(), p)) {
@@ -74,6 +104,9 @@ public class UserRepository implements IRepository, Serializable {
         return null;
     }
 
+    /**
+     * Sauvegarder le nouveau repertoire d'utilisateur comme repertoire des utilisateurs.
+     */
     @Override
     public void storeRepo() {
         try {

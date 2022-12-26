@@ -16,6 +16,9 @@ public class MunicipInfoService {
     HashMap<String, Double> useRecyc = new HashMap<String, Double>();
     HashMap<String, Double> useCompo = new HashMap<String, Double>();
 
+    /**
+     * initialiser les bacs et les consommateurs avec toutes les informations necessaires.
+     */
     public MunicipInfoService(){
         Bac bac1= new Bac("A","2150 Rue Mackay", new Date(), "Recyclage", .5);
         Bac bac2= new Bac("B","364 Ch cote des neiges", new Date(), "Compostage", .2);
@@ -95,12 +98,23 @@ public class MunicipInfoService {
 
 
 
+    /**
+     * Avoir les bacs remplis
+     * @param codeqr
+     */
     public Double getBacRemp(String codeqr){
         return getBac(codeqr).remp;
     }
+    /**
+     * Avoir les propotions du bac
+     * @param codeqr
+     */
     public HashMap<String, Double> getBacProp(String codeqr){
         return getBac(codeqr).prop;
     }
+    /**
+     * Avoir l'etat du lot.
+     */
 
     public void getLotState(){
         Lot lot = this.getLot("1");
@@ -128,12 +142,20 @@ public class MunicipInfoService {
         System.out.println("Quantite traitee (en KG): "+lot.qte_traite);
     }
 
+    /**
+     * Signaler un probleme --
+     * @param infos
+     */
     public void reportProb(String infos){
         //traitement de la requete
         //on peut utiliser split "," pour obtenir les infos
         System.out.println("Votre report a ete envoye.");
     }
 
+    /**
+     * Verifier qu'un consommateur est dans la base de donnée de MunicipInfo
+     * @param code
+     */
     public boolean validateConsom(String code){
         for (Consommateur cons : repCons){
             if (Objects.equals(cons.code, code)) {return true;}
@@ -160,7 +182,6 @@ public class MunicipInfoService {
     /**
      * Cette fonction simule l'appel à get-lot(numero)
      * @param numero
-     * @return
      */
     private Lot getLot(String numero) {
         var lot = new Lot();
@@ -168,6 +189,10 @@ public class MunicipInfoService {
         return lot;
     }
 
+    /**
+     * Class pour definir le consommateur avec les infomrations pertinentes :code, nom, adresse, telephone,
+     * email, type_dechets, capacite.
+     */
 
     private class Consommateur {
         String code;
@@ -188,6 +213,9 @@ public class MunicipInfoService {
         }
     }
 
+    /**
+     * classe pour definir le bac avec les infomrations pertinentes :codeqr, adresse, dateEmission, type, remp.
+     */
     private class Bac {
         String codeqr;
         String adresse;
@@ -204,6 +232,10 @@ public class MunicipInfoService {
         }
     }
 
+    /**
+     * classe pour definir le lot avec les infomrations pertinentes :type, parent, sous_lots, dateRamassage
+     * , dateLivraison, statut, qte_total, qte_traite, taux_rejet, cout.
+     */
     private class Lot {
         String numero;
         String type;

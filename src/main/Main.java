@@ -1,12 +1,22 @@
 package main;
 
+/**
+ * classe Main de notre programme
+ */
 public class Main {
     static Menu menu = new Menu();
 
+    /**
+     * fonction main debase qui appelle init et displaylogin page
+     * @param args
+     */
     public static void main(String[] args) {
         init();
         menu.displayLoginPage();
     }
+    /**
+     * fonction qui intialise les 3 repo de base : userRepository ; ResidentRepository ; ConsomRepository
+     */
     private static void init() {
         UserRepository useRep = new UserRepository();
         ResidentRepository resRep = new ResidentRepository();

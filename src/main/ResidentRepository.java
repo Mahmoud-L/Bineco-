@@ -12,6 +12,9 @@ public class ResidentRepository implements IRepository, Serializable {
     private static final String RES_DATA_FILE_NAME = "src/resources/resData.txt";
     private static ArrayList<Resident> resRep = new ArrayList<>();
 
+    /**
+     * Initialiser la valeur du repertoire residents avec la data contenu dans le fichier txt
+     */
     public void init() {
         try {
             FileInputStream fis = new FileInputStream(RES_DATA_FILE_NAME);
@@ -24,6 +27,11 @@ public class ResidentRepository implements IRepository, Serializable {
         }
     }
 
+    /**
+     * Avoir l'id d'un resident
+     * @param id
+     * @return
+     */
     public Object get(String id) {
         for (Resident resident : resRep) {
             if (Objects.equals(resident.getId(), id)) {
@@ -34,15 +42,30 @@ public class ResidentRepository implements IRepository, Serializable {
         //Catch exception when object is not found
     }
 
+    /**
+     * Avoir la taille du repertoire .
+     * @return la taille du repertoire .
+     */
     public int size() {
         return resRep.size();
     }
 
+    /**
+     * Ajouter d'un nouvau resident dans le repertoire
+     * @param entity
+     * @return
+     */
     public boolean add(Object entity) {
         resRep.add((Resident) entity);
         return true;
         //Catch exception return false
     }
+
+    /**
+     * Changer les parametres d'un resident dans le repertoire des residents.
+     * @param id
+     * @param entity
+     */
 
     @Override
     public boolean edit(String id, Object entity) {
@@ -54,6 +77,10 @@ public class ResidentRepository implements IRepository, Serializable {
         //Catch exception return false
     }
 
+    /**
+     * Enlever un resident du repertoire de resident a partir de son id .
+     * @param id
+     */
 
     @Override
     public boolean remove(String id) {
@@ -67,6 +94,9 @@ public class ResidentRepository implements IRepository, Serializable {
         return this.resRep.toString();
     }
 
+    /**
+     * Sauvegarder le nouveau repertoire comme repertoire des residents.
+     */
     @Override
     public void storeRepo() {
         try {
